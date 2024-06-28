@@ -28,7 +28,6 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
           <input
             type="search"
             name="search"
-            id="search"
             placeholder="Qidirish..."
           />
           <font-awesome-icon
@@ -37,13 +36,13 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
           />
         </div>
         <div class="nav__content-items">
-          <router-link href="/" class="nav__content-items-item">
+          <router-link to="/" class="nav__content-items-item">
             <font-awesome-icon icon="user" class="icon" />
           </router-link>
-          <router-link href="/liked" class="nav__content-items-item">
+          <router-link to="/liked" class="nav__content-items-item">
             <font-awesome-icon icon="heart" class="icon" />
           </router-link>
-          <router-link href="/cart" class="nav__content-items-item">
+          <router-link to="/cart" class="nav__content-items-item">
             <font-awesome-icon icon="cart-shopping" class="icon" />
           </router-link>
         </div>

@@ -1,8 +1,9 @@
 .footer {
   border-top: 2px solid #2b2b2b;
   &__content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px;
     padding: 40px 0;
     &-list {
       display: flex;
@@ -25,9 +26,15 @@
         font-size: 20px;
       }
     }
+    & .list1{
+      grid-row: span 2;
+    }
+    & .list4{
+      grid-column: span 3;
+    }
     &-images {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 5px;
       &-img {
         width: 100px;
@@ -49,4 +56,5 @@
       }
     }
   }
+  
 }

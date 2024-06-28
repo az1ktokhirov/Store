@@ -148,6 +148,7 @@
 }
 
 .card {
+    min-height: 65vh;
     &__content {
         display: flex;
         align-items: center;

@@ -1,4 +1,5 @@
 .cart{
+    min-height: 65vh;
     &__content{
         padding: 20px 0 30px;
         display: flex;
@@ -8,13 +9,59 @@
             width: 800px;
             border: 2px solid #2b2b2b;
             border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            &-card{
+                display: flex;
+                justify-content: space-evenly;
+                padding: 15px;
+                border: #2b2b2b 2px solid;
+                border-radius: 15px;
+                gap: 15px;
+                &-img{
+                    width: 170px;
+                    height: 170px;
+                    & img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                & h4{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+                &-texts{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                    & .btns{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 5px 10px;
+                        border: #2b2b2b 2px solid;
+                        border-radius: 10px;
+                        & button{
+                            background: #f9f9f9;
+                            padding: 5px;
+                            border-radius: 5px;
+                            border: none !important;
+                        }
+                    }
+                }
+            }
         }
         &-right{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 15px;
             padding: 20px;
             width: 400px;
+            height: max-content;
             border: 2px solid #2b2b2b;
             border-radius: 15px;
             & a{
@@ -25,8 +72,52 @@
                 text-align: center;
             }
             &-prices{
-                
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                & p{
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 18px;
+                }
             }
+            &-delivery{
+                border-radius: 10px;
+                border: 2px solid #2b2b2b;
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                gap: 5px;
+                & p{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.nothing{
+    display: none;
+    min-height: 65vh;
+    &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        & h6{
+            font-size: 20px;
+        }
+        & p{
+            font-size: 18px;
+        }
+        &-link{
+            font-size: 20px;
+            background: #2b2b2b;
+            color: #f8f8f8;
+            padding: 10px 60px;
+            text-align: center;
+            border-radius: 10px;
         }
     }
 }
