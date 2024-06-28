@@ -37,15 +37,15 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
           />
         </div>
         <div class="nav__content-items">
-          <a href="/" class="nav__content-items-item">
+          <router-link href="/" class="nav__content-items-item">
             <font-awesome-icon icon="user" class="icon" />
-          </a>
-          <a href="/liked" class="nav__content-items-item">
+          </router-link>
+          <router-link href="/liked" class="nav__content-items-item">
             <font-awesome-icon icon="heart" class="icon" />
-          </a>
-          <a href="/cart" class="nav__content-items-item">
+          </router-link>
+          <router-link href="/cart" class="nav__content-items-item">
             <font-awesome-icon icon="cart-shopping" class="icon" />
-          </a>
+          </router-link>
         </div>
       </div>
       <div :class="['nav__modal', { 'nav__modal-open': isModalOpen }]">
