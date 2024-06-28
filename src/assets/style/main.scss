@@ -1,0 +1,24 @@
+@import "./font.scss";
+@import "./navbar.scss";
+@import "./cards.scss";
+@import "./header.scss";
+@import "./footer.scss";
+@import "./cart.scss";
+
+
+
+* {
+  font-family: "Samsung";
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+}

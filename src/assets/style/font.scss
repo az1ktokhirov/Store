@@ -1,0 +1,13 @@
+$Samsung: (
+    'One-400': 400,
+    'One-700': 700,
+    'One-800': 800
+);
+
+@each $name, $weight in $Samsung {
+    @font-face {
+        font-family: 'Samsung';
+        src: url(../fonts/Samsung#{$name}.ttf);
+        font-weight: $weight;
+    }
+}
