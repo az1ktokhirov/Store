@@ -34,9 +34,6 @@
                         <a href="" class="footer__content-list-link">Xizmatlar</a>
                     </li>
                     <li>
-                        <a href="" class="footer__content-list-link">To'lov usullari</a>
-                    </li>
-                    <li>
                         <a href="" class="footer__content-list-link">Qaytarish tartibi</a>
                     </li>
                 </ul>
@@ -67,6 +64,12 @@
                         </div>
                         <div class="footer__content-images-img">
                             <img src="../assets/img/visa.svg" alt="" />
+                        </div>
+                        <div class="footer__content-images-img">
+                            <img src="../assets/img/uzum.png" alt="" />
+                        </div>
+                        <div class="footer__content-images-img">
+                            <img src="../assets/img/union.png" alt="" />
                         </div>
                     </div>
                 </ul>

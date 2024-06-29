@@ -37,7 +37,7 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
         </div>
         <div class="nav__content-items">
           <router-link to="/" class="nav__content-items-item">
-            <font-awesome-icon icon="user" class="icon" />
+            <font-awesome-icon icon="home" class="icon" />
           </router-link>
           <router-link to="/liked" class="nav__content-items-item">
             <font-awesome-icon icon="heart" class="icon" />

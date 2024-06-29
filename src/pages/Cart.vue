@@ -31,7 +31,7 @@
                         <font-awesome-icon icon="truck" />
                         <p>Siz uchun bepul yetkazib berish xizmati mavjud.</p>
                     </div>
-                    <a href="/">buyurtmani tasdiqlash</a>
+                    <router-link to="/">buyurtmani tasdiqlash</router-link>
                 </div>
             </div>
         </div>

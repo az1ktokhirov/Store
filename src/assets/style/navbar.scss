@@ -70,6 +70,10 @@
         & .icon {
           font-size: 18px;
         }
+        &.router-link-exact-active{
+          background: #2b2b2b;
+          color: #fdfcfa;
+        }
       }
     }
     &-search {
