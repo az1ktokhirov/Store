@@ -1,54 +1,53 @@
 <template>
-    <section class="cards">
-        <div class="container">
-            <div class="cards__content">
-                <div v-for="product in filteredProducts" :key="product.id" class="cards__content-card">
-                    <div class="cards__content-card-img" @click="showProductDetail(product)">
-                        <img :src="product.thumbnail" alt="" />
-                    </div>
-                    <h4 class="cards__content-card-title">{{ product.title }}</h4>
-                    <p>{{ product.price }}$</p>
-                    <div class="cards__content-card-btns">
-                        <button>
-                            <font-awesome-icon icon="cart-plus" />
-                        </button>
-                        <button>
-                            <font-awesome-icon icon="heart-circle-plus" />
-                        </button>
-                    </div>
-                    <router-link :to="{ name: 'card', params: { id: product.id } }" class="cards__content-card-buy-btn">Buy now</router-link>
-                </div>
-            </div>
+  <section class="cards">
+    <div class="container">
+      <div class="cards__content">
+        <div v-for="product in filteredProducts" :key="product.id" class="cards__content-card">
+          <div class="cards__content-card-img" @click="showProductDetail(product)">
+            <img :src="product.thumbnail" alt="" />
+          </div>
+          <h4 class="cards__content-card-title">{{ product.title }}</h4>
+          <p>{{ product.price }}$</p>
+          <div class="cards__content-card-btns">
+            <button @click="addToCart(product)">
+              <font-awesome-icon icon="cart-plus" />
+            </button>
+            <button @click="toggleFavorite(product)">
+              <font-awesome-icon :icon="isFavorite(product) ? 'heart-circle-minus' : 'heart-circle-plus'" />
+            </button>
+          </div>
+          <router-link :to="{ name: 'card', params: { id: product.id } }" class="cards__content-card-buy-btn">Buy now</router-link>
         </div>
-    </section>
-
-    <div :class="['card-view', { show: selectedProduct }]" v-if="selectedProduct" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
-        <div class="card-view-area" ref="card">
-            <div class="card-view-area-left">
-                <div><img :src="selectedProduct.thumbnail" alt="" /></div>
-            </div>
-            <div class="card-view-area-right">
-                <h5>{{ selectedProduct.title }}</h5>
-                <p>{{ selectedProduct.description }}</p>
-                <h4>{{ selectedProduct.price }}$</h4>
-                <div class="btns">
-                    <button>
-                        <font-awesome-icon icon="cart-plus" />
-                    </button>
-                    <button>
-                        <font-awesome-icon icon="heart-circle-plus" />
-                    </button>
-                </div>
-            </div>
-            <a class="close" @click="closeProductDetail"><font-awesome-icon icon="xmark" /></a>
-        </div>
+      </div>
     </div>
+  </section>
+
+  <div :class="['card-view', { show: selectedProduct }]" v-if="selectedProduct" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
+    <div class="card-view-area" ref="card">
+      <div class="card-view-area-left">
+        <div><img :src="selectedProduct.thumbnail" alt="" /></div>
+      </div>
+      <div class="card-view-area-right">
+        <h5>{{ selectedProduct.title }}</h5>
+        <p>{{ selectedProduct.description }}</p>
+        <h4>{{ selectedProduct.price }}$</h4>
+        <div class="btns">
+          <button @click="addToCart(selectedProduct)">
+            <font-awesome-icon icon="cart-plus" />
+          </button>
+          <button @click="toggleFavorite(selectedProduct)">
+            <font-awesome-icon :icon="isFavorite(selectedProduct) ? 'heart-circle-minus' : 'heart-circle-plus'" />
+          </button>
+        </div>
+      </div>
+      <a class="close" @click="closeProductDetail"><font-awesome-icon icon="xmark" /></a>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { useStore } from "vuex";
-import { computed } from "vue";
+import { ref, onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 
 const store = useStore();
 const selectedProduct = ref(null);
@@ -56,31 +55,48 @@ const selectedProduct = ref(null);
 const filteredProducts = computed(() => store.getters.filteredProducts);
 
 onMounted(() => {
-    store.dispatch("fetchProducts");
+  store.dispatch('fetchProducts');
 });
 
 function showProductDetail(product) {
-    selectedProduct.value = product;
+  selectedProduct.value = product;
 }
 
 function closeProductDetail() {
-    selectedProduct.value = null;
+  selectedProduct.value = null;
+}
+
+function addToCart(product) {
+  store.dispatch('addToCart', product);
+}
+
+function toggleFavorite(product) {
+  if (isFavorite(product)) {
+    store.dispatch('removeFromFavorites', product.id);
+  } else {
+    store.dispatch('addToFavorites', product);
+  }
+}
+
+function isFavorite(product) {
+  return store.getters.favoriteItems.some(item => item.id === product.id);
 }
 
 const card = ref(null);
 
 function handleMouseMove(e) {
-    const cardRect = card.value.getBoundingClientRect();
-    const cardX = cardRect.left + cardRect.width / 2;
-    const cardY = cardRect.top + cardRect.height / 2;
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const rotateX = (mouseY - cardY) / 25;
-    const rotateY = (mouseX - cardX) / 25;
-    card.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  const cardRect = card.value.getBoundingClientRect();
+  const cardX = cardRect.left + cardRect.width / 2;
+  const cardY = cardRect.top + cardRect.height / 2;
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+  const rotateX = (mouseY - cardY) / 25;
+  const rotateY = (mouseX - cardX) / 25;
+  card.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
 
 function handleMouseLeave() {
-    card.value.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+  card.value.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
 }
 </script>
+

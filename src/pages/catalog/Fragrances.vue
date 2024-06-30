@@ -54,7 +54,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();
-const transportProducts = computed(() => store.getters.getProductsByCategory("beauty"));
+const transportProducts = computed(() => store.getters.getProductsByCategory("fragrances"));
 const selectedProduct = ref(null);
 
 onMounted(() => {
