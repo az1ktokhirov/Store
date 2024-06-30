@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './pages/Home.vue';
-import Card from './pages/Card.vue';
-import Cart from './pages/Cart.vue';
-import Liked from './pages/Liked.vue';
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/card', component: Card },
-  { path: '/cart', component: Cart },
-  { path: '/liked', component: Liked },
+  { path: '/card/:id',name: 'card', component: () => import('./pages/Card.vue'), props: true },
+  { path: '/cart', component: () => import('./pages/Cart.vue') },
+  { path: '/liked', component: () => import('./pages/Liked.vue') },
+  { path: '/beauty', component: () => import('./pages/catalog/BeautyProducts.vue') },
+  { path: '/transport', component: () => import('./pages/catalog/Transport.vue') },
 ];
 
 export const router = createRouter({

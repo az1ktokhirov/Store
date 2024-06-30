@@ -102,9 +102,9 @@
 }
 
 .nothing{
-    display: none;
-    min-height: 65vh;
     &__content{
+        width: 100%;
+        min-height: 65vh;
         display: flex;
         flex-direction: column;
         align-items: center;

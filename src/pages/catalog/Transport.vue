@@ -2,26 +2,27 @@
     <section class="cards">
         <div class="container">
             <div class="cards__content">
-                <div v-for="product in filteredProducts" :key="product.id" class="cards__content-card">
+                <div v-if="transportProducts.length === 0">
+                    <h4>Uzur bu Bolimda Mahsulotlar topilmadi</h4>
+                    <p>Asosiy sahifadan boshqa mahsulotlarimizni koring.</p>
+                </div>
+                <div v-else v-for="product in transportProducts" :key="product.id" class="cards__content-card">
                     <div class="cards__content-card-img" @click="showProductDetail(product)">
                         <img :src="product.thumbnail" alt="" />
                     </div>
                     <h4 class="cards__content-card-title">{{ product.title }}</h4>
                     <p>{{ product.price }}$</p>
                     <div class="cards__content-card-btns">
-                        <button>
-                            <font-awesome-icon icon="cart-plus" />
-                        </button>
-                        <button>
-                            <font-awesome-icon icon="heart-circle-plus" />
-                        </button>
+                        <button><font-awesome-icon icon="cart-plus" /></button>
+                        <button><font-awesome-icon icon="heart-circle-plus" /></button>
                     </div>
-                    <router-link :to="{ name: 'card', params: { id: product.id } }" class="cards__content-card-buy-btn">Buy now</router-link>
+                    <router-link to="/card" class="cards__content-card-buy-btn">Buy now</router-link>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Detailed view component -->
     <div :class="['card-view', { show: selectedProduct }]" v-if="selectedProduct" @mousemove="handleMouseMove" @mouseleave="handleMouseLeave">
         <div class="card-view-area" ref="card">
             <div class="card-view-area-left">
@@ -32,28 +33,22 @@
                 <p>{{ selectedProduct.description }}</p>
                 <h4>{{ selectedProduct.price }}$</h4>
                 <div class="btns">
-                    <button>
-                        <font-awesome-icon icon="cart-plus" />
-                    </button>
-                    <button>
-                        <font-awesome-icon icon="heart-circle-plus" />
-                    </button>
+                    <button><font-awesome-icon icon="cart-plus" /></button>
+                    <button><font-awesome-icon icon="heart-circle-plus" /></button>
                 </div>
+                <a class="close" @click="closeProductDetail"><font-awesome-icon icon="times" /></a>
             </div>
-            <a class="close" @click="closeProductDetail"><font-awesome-icon icon="xmark" /></a>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
-import { computed } from "vue";
 
 const store = useStore();
+const transportProducts = computed(() => store.getters.getProductsByCategory("automotive"));
 const selectedProduct = ref(null);
-
-const filteredProducts = computed(() => store.getters.filteredProducts);
 
 onMounted(() => {
     store.dispatch("fetchProducts");

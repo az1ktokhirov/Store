@@ -1,5 +1,13 @@
 <script setup>
 import { ref, computed } from "vue";
+import { useStore } from 'vuex';
+
+const store = useStore();
+const searchQuery = ref('');
+
+function updateSearch() {
+  store.dispatch('updateSearchQuery', searchQuery.value);
+}
 
 const isModalOpen = ref(false);
 
@@ -29,6 +37,8 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
             type="search"
             name="search"
             placeholder="Qidirish..."
+            v-model="searchQuery"
+            @input="updateSearch"
           />
           <font-awesome-icon
             icon="magnifying-glass"
@@ -50,9 +60,9 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
       <div :class="['nav__modal', { 'nav__modal-open': isModalOpen }]">
         <ul class="nav__modal-list">
           <li>
-            <a href="#" class="nav__modal-list-link">
+            <router-link to="/transport" class="nav__modal-list-link">
               <font-awesome-icon icon="car" />Avtotovarlar
-            </a>
+            </router-link >
           </li>
           <li>
             <a href="#" class="nav__modal-list-link">
@@ -100,10 +110,10 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
             </a>
           </li>
           <li>
-            <a href="#" class="nav__modal-list-link">
+            <router-link to="/beauty" class="nav__modal-list-link">
               <font-awesome-icon icon="hand-holding-droplet" />Go'zallik va
               parvarish
-            </a>
+            </router-link>
           </li>
           <li>
             <a href="#" class="nav__modal-list-link">

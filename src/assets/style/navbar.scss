@@ -127,12 +127,17 @@
         display: flex;
         gap: 5px;
         align-items: center;
+        padding: 5px;
         transition: 0.3s;
         border-bottom: 2px solid transparent;
         border-radius: 3px;
-        font-size: 15.5px;
+        font-size: 14px;
         &:hover {
           color: #2f2f2f;
+        }
+        &.router-link-exact-active{
+          color: #fdfcfa;
+          background: #2b2b2b;
         }
       }
     }
