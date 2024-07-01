@@ -54,7 +54,7 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
                         <router-link to="/aksesuarlar" class="nav__modal-list-link"> <font-awesome-icon icon="headphones" />Aksessuarlar </router-link>
                     </li>
                     <li>
-                        <router-link to="/mebellar" class="nav__modal-list-link"> <font-awesome-icon icon="blender" />Maishiy texnika</router-link>
+                        <router-link to="/planshetlar" class="nav__modal-list-link"> <font-awesome-icon icon="tablet" />Planshetlar</router-link>
                     </li>
                     <li>
                         <router-link to="/maishiy-kimyo-vositalari" class="nav__modal-list-link"> <font-awesome-icon icon="pump-soap" />Maishiy kimyoviy moddalar</router-link>
@@ -63,37 +63,28 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
                         <router-link to="/mototransportlar" class="nav__modal-list-link"> <font-awesome-icon icon="motorcycle" />Mototransportlar</router-link>
                     </li>
                     <li>
-                        <router-link to="/avtomobillar" class="nav__modal-list-link"> <font-awesome-icon icon="horse" />Bolalar tovarlari </router-link>
+                        <router-link to="/ko`zoynaklar" class="nav__modal-list-link"> <font-awesome-icon icon="glasses" />Ko'zoynaklar</router-link>
                     </li>
                     <li>
-                        <router-link to="/avtomobillar" class="nav__modal-list-link"> <font-awesome-icon icon="heart-pulse" />Salomatlik</router-link>
+                        <router-link to="/noutbuklar" class="nav__modal-list-link"> <font-awesome-icon icon="laptop" />Noutbuklar</router-link>
                     </li>
                     <li>
-                        <router-link to="/" class="nav__modal-list-link"> <font-awesome-icon icon="home" />Uy jihozlari</router-link>
+                        <router-link to="/uy-dekaratsiyalari" class="nav__modal-list-link"> <font-awesome-icon icon="chair" />Uy dekoratsiyalari</router-link>
                     </li>
                     <li>
-                        <router-link to="/" class="nav__modal-list-link"> <font-awesome-icon icon="pencil" />Kanselyariya tovarlari</router-link>
+                        <router-link to="/erkaklar-uchun" class="nav__modal-list-link"> <font-awesome-icon icon="person" />Erkaklar uchun</router-link>
                     </li>
                     <li>
-                        <router-link to="/" class="nav__modal-list-link"> <font-awesome-icon icon="book" />Kitoblar</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/go`zallik-va-parvarish" class="nav__modal-list-link"> <font-awesome-icon icon="hand-holding-droplet" />Go'zallik va parvarish</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/" class="nav__modal-list-link"> <font-awesome-icon icon="shoe-prints" />Poyabzallar</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/" class="nav__modal-list-link"> <font-awesome-icon icon="t-shirt" />Kiyim</router-link>
+                        <router-link to="/ayollar-uchun" class="nav__modal-list-link"> <font-awesome-icon icon="person-dress" />Ayollar uchun</router-link>
                     </li>
                     <li>
                         <router-link to="/oziq-ovqat" class="nav__modal-list-link"> <font-awesome-icon icon="apple-whole" />Oziq-ovqat mahsulotlari</router-link>
                     </li>
                     <li>
-                        <router-link to="/" class="nav__modal-list-link"> <font-awesome-icon icon="basketball" />Sport va hordiq </router-link>
+                        <router-link to="/spo`rt-va-hordiq" class="nav__modal-list-link"> <font-awesome-icon icon="basketball" />Sport va hordiq </router-link>
                     </li>
                     <li>
-                        <router-link to="/mebellar" class="nav__modal-list-link"> <font-awesome-icon icon="paint-roller" />Qurilish va ta'mirlash </router-link>
+                        <router-link to="/mebellar" class="nav__modal-list-link"> <font-awesome-icon icon="home" />Uy jihozlari</router-link>
                     </li>
                     <li>
                         <router-link to="/oshxona-jihozlari" class="nav__modal-list-link"> <font-awesome-icon icon="kitchen-set" />Oshxona-jihozlari</router-link>

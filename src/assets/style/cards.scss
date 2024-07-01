@@ -2,7 +2,7 @@
     &__content {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        
+
         gap: 10px;
         padding: 20px 0;
         place-items: center;
@@ -43,12 +43,12 @@
                     color: #f8f8f8;
                     padding: 5px 10px;
                     border-radius: 10px;
+                    cursor: pointer;
                 }
             }
             &-title {
                 font-size: 18px;
                 height: 40px;
-
             }
             & p {
                 font-size: 18px;
@@ -62,7 +62,21 @@
                 padding: 5px 15px;
                 border-radius: 25px;
             }
-            
+        }
+        &-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 40px;
+            font-size: 18px;
+            border: 2px solid #2b2b2b;
+            border-radius: 15px;
+            background: #f8f8f8;
+            transition: 0.5s;
+            cursor: grab;
+            &:hover{
+                background: #2b2b2b;
+                color: #f8f8f8;
+            }
         }
     }
 }
@@ -78,13 +92,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0; 
-    transform: scale(0.9); 
-    transition: opacity 0.3s ease, transform 0.3s ease; 
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
 
     &.show {
         opacity: 1;
-        transform: scale(1); 
+        transform: scale(1);
     }
 
     &-area {
@@ -97,7 +113,7 @@
         gap: 40px;
         display: flex;
         justify-content: space-between;
-        transform: perspective(1000px) rotateY(0deg) rotateX(0deg); 
+        transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
         transition: transform 0.1s ease;
 
         .card-view-area-left,

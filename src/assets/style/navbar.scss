@@ -1,10 +1,11 @@
 .nav {
   border-bottom: 2px solid #2b2b2b;
+  position:  relative;
+  background: white;
+  z-index: 20;
   &__content {
+    // position: fixed;
     background: white;
-    position: fixed;
-    position: relative;
-    z-index: 2;
     display: flex;
     align-items: center;
     padding: 15px 0;
@@ -102,12 +103,12 @@
     }
   }
   &__modal {
-    z-index: 1;
-    top: -10%;
+    z-index: -1;
+    top: -200%;
     position: absolute;
     transition: top 0.5s;
     &-open {
-      top: 9%;
+      top: 100%;
     }
     // background: #52525275;
     // backdrop-filter: blur(5px);

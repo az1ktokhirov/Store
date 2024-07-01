@@ -2,7 +2,7 @@
   <section class="cards">
     <div class="container">
       <div class="cards__content">
-        <div v-for="product in filteredProducts" :key="product.id" class="cards__content-card">
+        <div v-for="product in displayedProducts" :key="product.id" class="cards__content-card">
           <div class="cards__content-card-img" @click="showProductDetail(product)">
             <img :src="product.thumbnail" alt="" />
           </div>
@@ -19,6 +19,7 @@
           <router-link :to="{ name: 'card', params: { id: product.id } }" class="cards__content-card-buy-btn">Buy now</router-link>
         </div>
       </div>
+      <button v-if="moreToShow" @click="showMoreProducts" class="cards__content-btn">Ko'proq ko'rsatish</button>
     </div>
   </section>
 
@@ -51,12 +52,21 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 const selectedProduct = ref(null);
+const productsToShow = ref(20);
 
 const filteredProducts = computed(() => store.getters.filteredProducts);
+
+const displayedProducts = computed(() => filteredProducts.value.slice(0, productsToShow.value));
+
+const moreToShow = computed(() => filteredProducts.value.length > productsToShow.value);
 
 onMounted(() => {
   store.dispatch('fetchProducts');
 });
+
+function showMoreProducts() {
+  productsToShow.value += 20;
+}
 
 function showProductDetail(product) {
   selectedProduct.value = product;
@@ -99,4 +109,3 @@ function handleMouseLeave() {
   card.value.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
 }
 </script>
-

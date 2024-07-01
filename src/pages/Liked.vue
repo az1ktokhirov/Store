@@ -1,5 +1,5 @@
 <template>
-  <section class="cards">
+  <section class="cards" v-if="favoriteItems.length">
     <div class="container">
       <h5 class="liked-title">Siz yoqtirgan mahsulotlar</h5>
       <div class="cards__content">
@@ -22,6 +22,16 @@
       </div>
     </div>
   </section>
+  <div class="nothing" v-else>
+      <div class="container">
+        <div class="nothing__content">
+          <img src="../assets/img/heart.png" alt="">
+          <h6>Sizga yoqqanini qoʻshing</h6>
+          <p>Mahsulotdagi <font-awesome-icon icon="heart-circle-plus" /> belgisini bosing. Akkauntga kiring va barcha saralanganlar saqlanib qoladi</p>
+          <router-link to="/" class="nothing__content-link"><font-awesome-icon icon="home" /></router-link>                
+        </div>
+      </div>
+    </div>
 </template>
 
 <script setup>
