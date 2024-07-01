@@ -28,13 +28,13 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
                     <font-awesome-icon icon="magnifying-glass" class="nav__content-search-icon" />
                 </div>
                 <div class="nav__content-items">
-                    <router-link to="/" class="nav__content-items-item" @click="toggleModal">
+                    <router-link to="/" class="nav__content-items-item">
                         <font-awesome-icon icon="home" class="icon" />
                     </router-link>
-                    <router-link to="/liked" class="nav__content-items-item" @click="toggleModal">
+                    <router-link to="/liked" class="nav__content-items-item">
                         <font-awesome-icon icon="heart" class="icon" />
                     </router-link>
-                    <router-link to="/cart" class="nav__content-items-item" @click="toggleModal">
+                    <router-link to="/cart" class="nav__content-items-item">
                         <font-awesome-icon icon="cart-shopping" class="icon" />
                     </router-link>
                 </div>
