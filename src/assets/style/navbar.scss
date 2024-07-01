@@ -4,7 +4,6 @@
   z-index: 20;
   position:  relative;
   &__content {
-    // position: fixed;
     background: white;
     display: flex;
     align-items: center;
@@ -103,13 +102,13 @@
     }
   }
   &__modal {
-    z-index: 10;
-    top: -10%;
+    z-index: -10;
+    top: -200%;
     position: absolute;
     left: calc(50% - 660px);
     transition: top 0.5s;
     &-open {
-      top: 9%;
+      top: 100%;
     }
     &-list {
       width: 1320px !important;
