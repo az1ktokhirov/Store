@@ -2,7 +2,8 @@
     <section class="cards">
       <div class="container">
         <div class="cards__content">
-          <div v-if="transportProducts.length === 0">
+          <h5 class="cards-title">Uy dekoratsiyalari</h5>
+          <div v-if="transportProducts.length === 0" class="cards-nothing">
             <h4>Uzur bu Bolimda Mahsulotlar topilmadi</h4>
             <p>Asosiy sahifadan boshqa mahsulotlarimizni koring.</p>
           </div>

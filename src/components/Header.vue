@@ -124,7 +124,6 @@ watch(slideElements, moveToCurrentSlide);
       <div class="container">
         <div class="header__content">
           <div class="header__content-swiper">
-            <!-- Original slides -->
             <div class="header__content-swiper-slide" v-for="index in totalSlides" :key="index">
               <h4>Galaxy watch FE</h4>
               <h2>Ajoyib narxda yaxshilangan salomatlik</h2>

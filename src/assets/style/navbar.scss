@@ -1,8 +1,8 @@
 .nav {
   border-bottom: 2px solid #2b2b2b;
-  position:  relative;
   background: white;
   z-index: 20;
+  position:  relative;
   &__content {
     // position: fixed;
     background: white;
@@ -103,38 +103,37 @@
     }
   }
   &__modal {
-    z-index: -1;
-    top: -200%;
+    z-index: 10;
+    top: -10%;
     position: absolute;
+    left: calc(50% - 660px);
     transition: top 0.5s;
     &-open {
-      top: 100%;
+      top: 9%;
     }
-    // background: #52525275;
-    // backdrop-filter: blur(5px);
     &-list {
-      max-width: 1320px;
+      width: 1320px !important;
       background: white;
       padding: 20px 10px;
       display: grid;
       gap: 10px;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       border: 2px solid #2b2b2b;
       border-top: none;
       border-radius: 0 0 45px 45px;
       place-items: center;
       &-link {
-        color: #2f2f2fb8;
+        color: #2f2f2f9d;
         display: flex;
         gap: 5px;
         align-items: center;
-        padding: 5px;
+        padding: 5px 10px;
         transition: 0.3s;
         border-bottom: 2px solid transparent;
         border-radius: 3px;
-        font-size: 14px;
+        font-size: 17px;
         &:hover {
-          color: #2f2f2f;
+          color: #2b2b2b;
         }
         &.router-link-exact-active{
           color: #fdfcfa;

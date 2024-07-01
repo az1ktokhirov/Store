@@ -2,6 +2,7 @@
   <section class="cards">
     <div class="container">
       <div class="cards__content">
+        <h4 class="cards-title">Ayollar uchun Tavarlar</h4>
         <div v-if="filteredProducts.length === 0">
           <h4>Uzur bu Bolimda Mahsulotlar topilmadi</h4>
           <p>Asosiy sahifadan boshqa mahsulotlarimizni koring.</p>
