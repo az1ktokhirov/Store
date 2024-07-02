@@ -91,16 +91,16 @@
             }
         }
     }
-    &-title{
+    &-title {
         width: 80%;
         grid-column: span 5;
         font-size: 30px;
         text-align: center;
         padding: 40px 0;
         margin: 0 0 20px 0;
-        border-bottom: #2b2b2b 2px solid ;
+        border-bottom: #2b2b2b 2px solid;
     }
-    &-nothing{
+    &-nothing {
         grid-column: span 5;
     }
 }
@@ -118,9 +118,7 @@
     align-items: center;
     opacity: 0;
     transform: scale(0.9);
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 
     &.show {
         opacity: 1;
