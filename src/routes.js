@@ -1,13 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './pages/Home.vue';
-import Cart from './pages/Cart.vue';
-import Liked from './pages/Liked.vue';
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/card/:id',name: 'card', component: () => import('./pages/Card.vue'), props: true },
-  { path: '/cart', component: Cart },
-  { path: '/liked', component: Liked },
+  { path: '/card/:id', name: 'card', component: () => import('./pages/Card.vue'), props: true },
+  { path: '/cart', component: () => import('./pages/Cart.vue') },
+  { path: '/liked', component: () => import('./pages/Liked.vue') },
   { path: '/avtomobillar', component: () => import('./pages/catalog/Auto.vue') },
   { path: '/mototransportlar', component: () => import('./pages/catalog/Moto.vue') },
   { path: '/aksesuarlar', component: () => import('./pages/catalog/Accessories.vue') },
@@ -17,7 +15,7 @@ const routes = [
   { path: '/smartfonlar', component: () => import('./pages/catalog/Smartphones.vue') },
   { path: '/maishiy-kimyo-vositalari', component: () => import('./pages/catalog/SkinCare.vue') },
   { path: '/uy-dekaratsiyalari', component: () => import('./pages/catalog/HomeDecor.vue') },
-  { path: '/ko`zoynaklar', component: () => import('./pages/catalog/SunGlasses.vue') },
+  { path: '/kozoynaklar', component: () => import('./pages/catalog/SunGlasses.vue') },
   { path: '/sport-va-hordiq', component: () => import('./pages/catalog/Sport.vue') },
   { path: '/planshetlar', component: () => import('./pages/catalog/Tablet.vue') },
   { path: '/noutbuklar', component: () => import('./pages/catalog/Noutbuk.vue') },
