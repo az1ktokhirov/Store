@@ -5,13 +5,15 @@
         display: flex;
         justify-content: space-evenly;
         &-left{
-            padding: 10px;
+            padding: 10px 20px;
+            overflow-y: scroll;
             width: 800px;
             border: 2px solid #2b2b2b;
             border-radius: 15px;
             display: flex;
             flex-direction: column;
             gap: 15px;
+            max-height: 500px;
             &-card{
                 display: flex;
                 justify-content: space-between;

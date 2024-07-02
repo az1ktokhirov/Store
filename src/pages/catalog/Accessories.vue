@@ -53,54 +53,51 @@
   <script setup>
   import { ref, computed, onMounted } from 'vue';
   import { useStore } from 'vuex';
-  
-  const store = useStore();
-  const transportProducts = computed(() => store.getters.getProductsByCategory("mobile-accessories"));
-  const selectedProduct = ref(null);
-  
+  const store = useStore(); // Vuex store'ini chaqirish
+  const transportProducts = computed(() => store.getters.getProductsByCategory("mobile-accessories")); // transportProducts ma'lumotlarini hisoblash
+  const selectedProduct = ref(null); // Tanlangan mahsulot o'zgaruvchisi
+  // Komponent yuklanganida ma'lumotlarni yuklash
   onMounted(() => {
-    store.dispatch('fetchProducts');
+      store.dispatch('fetchProducts');
   });
-  
+  // Mahsulot detali chiqarish funksiyasi
   function showProductDetail(product) {
-    selectedProduct.value = product;
+      selectedProduct.value = product;
   }
-  
+  // Mahsulot detali yopish funksiyasi
   function closeProductDetail() {
-    selectedProduct.value = null;
+      selectedProduct.value = null;
   }
-  
+  // Savatga mahsulot qo'shish funksiyasi
   function addToCart(product) {
-    store.dispatch('addToCart', product);
+      store.dispatch('addToCart', product);
   }
-  
+  // Sevimli mahsulotni yoki yo'q qilish funksiyasi
   function toggleFavorite(product) {
-    if (isFavorite(product)) {
-      store.dispatch('removeFromFavorites', product.id);
-    } else {
-      store.dispatch('addToFavorites', product);
-    }
+      if (isFavorite(product)) {
+          store.dispatch('removeFromFavorites', product.id);
+      } else {
+          store.dispatch('addToFavorites', product);
+      }
   }
-  
+  // Mahsulot sevimliligi tekshirish funksiyasi
   function isFavorite(product) {
-    return store.getters.favoriteItems.some(item => item.id === product.id);
+      return store.getters.favoriteItems.some(item => item.id === product.id);
   }
-  
-  const card = ref(null);
-  
+  const card = ref(null); // Karta o'zgaruvchisi
+  // Mausor ustida ishlovchi funksiya
   function handleMouseMove(e) {
-    const cardRect = card.value.getBoundingClientRect();
-    const cardX = cardRect.left + cardRect.width / 2;
-    const cardY = cardRect.top + cardRect.height / 2;
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    const rotateX = (mouseY - cardY) / 25;
-    const rotateY = (mouseX - cardX) / 25;
-    card.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      const cardRect = card.value.getBoundingClientRect(); // Karta to'g'risida bo'yicha ma'lumotlar
+      const cardX = cardRect.left + cardRect.width / 2; // Karta o'rtasidagi x
+      const cardY = cardRect.top + cardRect.height / 2; // Karta o'rtasidagi y
+      const mouseX = e.clientX; // Foydalanuvchi tarmog'idan x
+      const mouseY = e.clientY; // Foydalanuvchi tarmog'idan y
+      const rotateX = (mouseY - cardY) / 25; // X bo'lgan aylantirish
+      const rotateY = (mouseX - cardX) / 25; // Y bo'lgan aylantirish
+      card.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`; // Karta transformatsiyasi
   }
-  
+  // Mausor tark etish funksiyasi
   function handleMouseLeave() {
-    card.value.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+      card.value.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'; // Karta transformatsiyasini boshqarish
   }
   </script>
-  

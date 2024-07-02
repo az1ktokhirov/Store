@@ -51,26 +51,27 @@
 
   
 <script setup>
-import { useStore } from 'vuex';
-import { computed } from 'vue';
+import { useStore } from 'vuex'; // Vuex store'dan foydalanish uchun useStore funksiyasini import qilyapmiz.
+import { computed } from 'vue'; // Computed propertilar yaratish uchun computed funksiyasini import qilyapmiz.
 
-const store = useStore();
+const store = useStore(); // Vuex store'ga kirish uchun useStore funksiyasini chaqiryapmiz.
 
-const cartItems = computed(() => store.getters.cartItems);
-const cartItemCount = computed(() => store.getters.cartItemCount);
-const cartTotalPrice = computed(() => store.getters.cartTotalPrice);
+const cartItems = computed(() => store.getters.cartItems); // Savatdagi mahsulotlarni olish uchun computed properti yaratamiz.
+const cartItemCount = computed(() => store.getters.cartItemCount); // Savatdagi mahsulotlar sonini olish uchun computed properti yaratamiz.
+const cartTotalPrice = computed(() => store.getters.cartTotalPrice); // Savatdagi jami narxni olish uchun computed properti yaratamiz.
 
 function removeFromCart(productId) {
-    store.dispatch('removeFromCart', productId);
+    store.dispatch('removeFromCart', productId); // Mahsulotni savatdan olib tashlash uchun dispatch orqali Vuex action'ni chaqiramiz.
 }
 
 function updateCartItemQuantity(productId, quantity) {
-    store.dispatch('updateCartItemQuantity', { productId, quantity });
+    store.dispatch('updateCartItemQuantity', { productId, quantity }); // Mahsulot miqdorini yangilash uchun dispatch orqali Vuex action'ni chaqiramiz.
 }
 
 function extractNumbers(text) {
-    return text.match(/\d+/g)?.join('') || '0';
+    return text.match(/\d+/g)?.join('') || '0'; // Berilgan matndan raqamlarni chiqarib olish funksiyasi. Agar raqam topilmasa, '0' qaytaradi.
 }
 </script>
+
 
   

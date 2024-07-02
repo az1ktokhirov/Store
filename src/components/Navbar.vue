@@ -16,7 +16,6 @@ const toggleModal = () => {
 
 const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
 
-// Computed property for total cart item count
 const totalCartItems = computed(() => store.getters.cartItemCount);
 </script>
 

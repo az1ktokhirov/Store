@@ -35,21 +35,18 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+import { computed } from 'vue'; // Vue funksiyalarini import qilyapmiz.
+import { useStore } from 'vuex'; // Vuex store'dan foydalanish uchun useStore funksiyasini import qilyapmiz.
 
-const store = useStore();
-const favoriteItems = computed(() => store.getters.favoriteItems);
-
-function showProductDetail(product) {
-  // Implementation for showing product details, might include opening a modal or navigating to a detail page
-}
+const store = useStore(); // Vuex store'ga kirish uchun useStore funksiyasini chaqiryapmiz.
+const favoriteItems = computed(() => store.getters.favoriteItems); // Vuex'dan favoriteItems getterini olish uchun computed properti.
 
 function addToCart(product) {
-  store.dispatch('addToCart', product);
+  store.dispatch('addToCart', product); // Mahsulotni savatga qo'shish funksiyasi.
 }
 
 function removeFromFavorites(productId) {
-  store.dispatch('removeFromFavorites', productId);
+  store.dispatch('removeFromFavorites', productId); // Mahsulotni saralanganlardan olib tashlash funksiyasi.
 }
 </script>
+

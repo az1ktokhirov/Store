@@ -37,20 +37,19 @@ import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute, useRouter } from 'vue-router';
 
-const store = useStore();
-const route = useRoute();
-const router = useRouter();
+const store = useStore(); // Vuex store'ini chaqirish
+const route = useRoute(); // Vue Router route obyektini chaqirish
+const router = useRouter(); // Vue Router ni chaqirish
 
-const product = computed(() => {
-  const id = route.params.id;
-  return store.state.products.find(p => p.id === parseInt(id));
+const product = computed(() => { // Mahsulotni hisoblash uchun computed o'zgaruvchisi
+  const id = route.params.id; // Route parametrlaridan mahsulot ID sini olish
+  return store.state.products.find(p => p.id === parseInt(id)); // Store'dan mahsulotni topish
 });
 
-
-function addToCart(product) {
-  store.dispatch('addToCart', product);
-  router.push('/cart'); // Redirect to home or cart page after adding to cart
+function addToCart(product) { // Savatga mahsulot qo'shish funksiyasi
+  store.dispatch('addToCart', product); // Vuex orqali addToCart action ni chaqirish
+  router.push('/cart'); // Savat sahifasiga o'tish
 }
-console.log(product);
 </script>
+
 
