@@ -22,3 +22,7 @@
   margin: 0 auto;
   padding: 0;
 }
+
+::-webkit-scrollbar{
+  scroll-behavior: smooth;
+}

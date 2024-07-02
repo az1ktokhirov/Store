@@ -42,7 +42,12 @@
                     color: #f8f8f8;
                     padding: 5px 10px;
                     border-radius: 10px;
-                    cursor: pointer;
+                    cursor: grab;
+                    &:active {
+                        color: #2b2b2b;
+                        background: #f8f8f8;
+                        cursor: grabbing;
+                    }
                 }
             }
             &-title {
@@ -60,7 +65,13 @@
                 background-color: #2b2b2b;
                 color: #f8f8f8;
                 padding: 5px 15px;
+                border: #2b2b2b 2px solid;
                 border-radius: 25px;
+                &:active {
+                    color: #2b2b2b;
+                    background: #f8f8f8;
+                    cursor: grabbing;
+                }
             }
         }
         &-btn {
@@ -73,11 +84,9 @@
             background: #f8f8f8;
             transition: 0.5s;
             cursor: grab;
-            &:hover{
+            &:active {
                 background: #2b2b2b;
                 color: #f8f8f8;
-            }
-            &:active {
                 cursor: grabbing;
             }
         }
