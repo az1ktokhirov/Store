@@ -5,8 +5,8 @@ export const store = createStore({
   state: {
     products: [],
     searchQuery: '',
-    cart: [],
-    favorites: []
+    cart: JSON.parse(localStorage.getItem('cart')) || [],
+    favorites: JSON.parse(localStorage.getItem('favorites')) || []
   },
 
   mutations: {
@@ -23,12 +23,14 @@ export const store = createStore({
       } else {
         state.cart.push({ ...product, quantity: 1 });
       }
+      localStorage.setItem('cart', JSON.stringify(state.cart)); // Savatchani localStorage ga saqlash
     },
     removeFromCart(state, productId) {
       const index = state.cart.findIndex(item => item.id === productId);
       if (index !== -1) {
         state.cart.splice(index, 1);
       }
+      localStorage.setItem('cart', JSON.stringify(state.cart)); // Savatchani localStorage ga saqlash
     },
     updateCartItemQuantity(state, { productId, quantity }) {
       const item = state.cart.find(item => item.id === productId);
@@ -40,17 +42,20 @@ export const store = createStore({
           state.cart.splice(index, 1);
         }
       }
+      localStorage.setItem('cart', JSON.stringify(state.cart)); // Savatchani localStorage ga saqlash
     },
     addToFavorites(state, product) {
       const item = state.favorites.find(item => item.id === product.id);
       if (!item) {
         state.favorites.push(product);
+        localStorage.setItem('favorites', JSON.stringify(state.favorites)); // Saralanganlarni  localStorage ga saqlash
       }
     },
     removeFromFavorites(state, productId) {
       const index = state.favorites.findIndex(item => item.id === productId);
       if (index !== -1) {
         state.favorites.splice(index, 1);
+        localStorage.setItem('favorites', JSON.stringify(state.favorites)); // Saralanganlarni  localStorage ga saqlash
       }
     }
   },

@@ -1,17 +1,25 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useStore } from "vuex";
+
 const store = useStore();
 const searchQuery = ref("");
+
 function updateSearch() {
     store.dispatch("updateSearchQuery", searchQuery.value);
 }
+
 const isModalOpen = ref(false);
 const toggleModal = () => {
     isModalOpen.value = !isModalOpen.value;
 };
+
 const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
+
+// Computed property for total cart item count
+const totalCartItems = computed(() => store.getters.cartItemCount);
 </script>
+
 <template>
     <nav class="nav">
         <div class="container">
@@ -34,8 +42,9 @@ const catalogIcon = computed(() => (isModalOpen.value ? "xmark" : "bars"));
                     <router-link to="/liked" class="nav__content-items-item">
                         <font-awesome-icon icon="heart" class="icon" />
                     </router-link>
-                    <router-link to="/cart" class="nav__content-items-item">
+                    <router-link to="/cart" class="nav__content-items-item nav__content-items-item-icon">
                         <font-awesome-icon icon="cart-shopping" class="icon" />
+                        <span class="nav__content-items-item-badge" v-if="totalCartItems > 0">{{ totalCartItems }}</span>
                     </router-link>
                 </div>
             </div>

@@ -8,7 +8,7 @@
             <img :src="product.thumbnail" alt="" />
           </div>
           <h4 class="cards__content-card-title">{{ product.title }}</h4>
-          <p>{{ product.price }}</p>
+          <p>{{ product.price }}$</p>
           <div class="cards__content-card-btns">
             <button @click="addToCart(product)">
               <font-awesome-icon icon="cart-plus" />
@@ -23,26 +23,26 @@
     </div>
   </section>
   <div class="nothing" v-else>
-      <div class="container">
-        <div class="nothing__content">
-          <img src="../assets/img/heart.png" alt="">
-          <h6>Sizga yoqqanini qoʻshing</h6>
-          <p>Mahsulotdagi <font-awesome-icon icon="heart-circle-plus" /> belgisini bosing. Akkauntga kiring va barcha saralanganlar saqlanib qoladi</p>
-          <router-link to="/" class="nothing__content-link"><font-awesome-icon icon="home" /></router-link>                
-        </div>
+    <div class="container">
+      <div class="nothing__content">
+        <img src="../assets/img/heart.png" alt="">
+        <h6>Sizga yoqqanini qoʻshing</h6>
+        <p>Mahsulotdagi <font-awesome-icon icon="heart-circle-plus" /> belgisini bosing. Akkauntga kiring va barcha saralanganlar saqlanib qoladi</p>
+        <router-link to="/" class="nothing__content-link"><font-awesome-icon icon="home" /></router-link>                
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useStore } from 'vuex';
 
 const store = useStore();
 const favoriteItems = computed(() => store.getters.favoriteItems);
 
 function showProductDetail(product) {
-  selectedProduct.value = product;
+  // Implementation for showing product details, might include opening a modal or navigating to a detail page
 }
 
 function addToCart(product) {
