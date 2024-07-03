@@ -6,6 +6,7 @@ const routes = [
   { path: '/card/:id', name: 'card', component: () => import('./pages/Card.vue'), props: true },
   { path: '/cart', component: () => import('./pages/Cart.vue') },
   { path: '/liked', component: () => import('./pages/Liked.vue') },
+  { path: '/th', component: () => import('./pages/Thanks.vue') },
   { path: '/avtomobillar', component: () => import('./pages/catalog/Auto.vue') },
   { path: '/mototransportlar', component: () => import('./pages/catalog/Moto.vue') },
   { path: '/aksesuarlar', component: () => import('./pages/catalog/Accessories.vue') },

@@ -57,6 +57,10 @@ export const store = createStore({
         state.favorites.splice(index, 1); // Agar mahsulot topilsa, saralanganlardan olib tashlash.
         localStorage.setItem('favorites', JSON.stringify(state.favorites)); // Saralanganlarni localStorage'ga saqlash.
       }
+    },
+    clearCart(state) {
+      state.cart = []; // Savatni tozalash.
+      localStorage.setItem('cart', JSON.stringify(state.cart)); // Savatni localStorage'ga saqlash.
     }
   },
 
@@ -87,6 +91,9 @@ export const store = createStore({
     },
     removeFromFavorites({ commit }, productId) {
       commit('removeFromFavorites', productId); // Saralangan mahsulotlardan olib tashlash uchun mutatsiyani chaqirish.
+    },
+    clearCart({ commit }) {
+      commit('clearCart'); // Savatni tozalash uchun mutatsiyani chaqirish.
     }
   },
 
