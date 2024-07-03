@@ -17,13 +17,13 @@ export const store = createStore({
       state.searchQuery = query; // Qidiruv so'rovini yangilash.
     },
     addToCart(state, product) {
-      const item = state.cart.find(item => item.id === product.id); // Savatda mahsulotni qidirish.
+      const item = state.cart.find(item => item.id === product.id);
       if (item) {
-        item.quantity++; // Agar mahsulot savatda bo'lsa, miqdorini oshirish.
+        item.quantity++;
       } else {
-        state.cart.push({ ...product, quantity: 1 }); // Agar mahsulot savatda bo'lmasa, yangi mahsulot qo'shish.
+        state.cart.push({ ...product, quantity: 1 });
       }
-      localStorage.setItem('cart', JSON.stringify(state.cart)); // Savatni localStorage'ga saqlash.
+      localStorage.setItem('cart', JSON.stringify(state.cart));
     },
     removeFromCart(state, productId) {
       const index = state.cart.findIndex(item => item.id === productId); // Savatda mahsulotni ID bo'yicha qidirish.
@@ -78,7 +78,7 @@ export const store = createStore({
       commit('setSearchQuery', query); // Qidiruv so'rovini yangilash uchun mutatsiyani chaqirish.
     },
     addToCart({ commit }, product) {
-      commit('addToCart', product); // Savatga mahsulot qo'shish uchun mutatsiyani chaqirish.
+      commit('addToCart', product); // Savatga mahsulot qo'shish uchun mutatsiyani chaqiriladi
     },
     removeFromCart({ commit }, productId) {
       commit('removeFromCart', productId); // Savatdan mahsulot olib tashlash uchun mutatsiyani chaqirish.
