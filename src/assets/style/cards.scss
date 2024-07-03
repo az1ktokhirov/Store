@@ -47,6 +47,7 @@
                         color: #2b2b2b;
                         background: #f8f8f8;
                         cursor: grabbing;
+                        box-shadow: 1px 1px 10px 1px #2b2b2b4a inset;
                     }
                 }
             }
@@ -68,9 +69,11 @@
                 border: #2b2b2b 2px solid;
                 border-radius: 25px;
                 &:active {
+                    border: transparent;
                     color: #2b2b2b;
                     background: #f8f8f8;
                     cursor: grabbing;
+                    box-shadow: 1px 1px 10px 1px #2b2b2b4a inset;
                 }
             }
         }
@@ -79,7 +82,9 @@
             margin: 20px auto;
             padding: 10px 40px;
             font-size: 18px;
-            border: 2px solid #2b2b2b;
+            // border: 2px solid #2b2b2b;
+            border: none;
+            box-shadow: 1px 1px 10px 1px #2b2b2b4a inset;
             border-radius: 15px;
             background: #f8f8f8;
             transition: 0.5s;
@@ -171,6 +176,13 @@
                     font-size: 20px;
                     padding: 5px 10px;
                     border-radius: 15px;
+                    cursor: grab;
+                    &:active {
+                        color: #2b2b2b;
+                        background: #f8f8f8;
+                        cursor: grabbing;
+                        box-shadow: 1px 1px 10px 1px #2b2b2b4a inset;
+                    }
                 }
             }
 
@@ -258,6 +270,12 @@
                 color: #f8f8f8;
                 padding: 5px 15px;
                 border-radius: 25px;
+                &:active {
+                    color: #2b2b2b;
+                    background: #f8f8f8;
+                    cursor: grabbing;
+                    box-shadow: 1px 1px 10px 1px #2b2b2b4a inset;
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 .footer {
-  border-top: 2px solid #2b2b2b;
+  // border-top: 2px solid #2b2b2b;
+  box-shadow: 1px 1px 10px 1px #2b2b2b4a;
   &__content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

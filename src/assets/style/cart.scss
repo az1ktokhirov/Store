@@ -8,7 +8,8 @@
             padding: 10px 20px;
             overflow-y: scroll;
             width: 800px;
-            border: 2px solid #2b2b2b;
+            // border: 2px solid #2b2b2b;
+            box-shadow: 1px 1px 10px 1px #2b2b2b4a;
             border-radius: 15px;
             display: flex;
             flex-direction: column;
@@ -18,9 +19,10 @@
                 display: flex;
                 justify-content: space-between;
                 padding: 15px;
-                border: #2b2b2b 2px solid;
+                // border: #2b2b2b 2px solid;
                 border-radius: 15px;
                 gap: 15px;
+                box-shadow: 1px 1px 10px 1px #2b2b2b4a;
                 &-img{
                     
                     height: 200px;
@@ -70,7 +72,8 @@
             padding: 20px;
             width: 400px;
             height: max-content;
-            border: 2px solid #2b2b2b;
+            // border: 2px solid #2b2b2b;
+            box-shadow: 1px 1px 10px 1px #2b2b2b4a;
             border-radius: 15px;
             & a{
                 color: #f8f8f8;
@@ -78,6 +81,12 @@
                 padding: 10px;
                 border-radius: 10px;
                 text-align: center;
+                &:active {
+                    color: #2b2b2b;
+                    background: #f8f8f8;
+                    cursor: grabbing;
+                    box-shadow: 1px 1px 10px 1px #2b2b2b4a inset;
+                }
             }
             &-prices{
                 display: flex;
@@ -91,7 +100,8 @@
             }
             &-delivery{
                 border-radius: 10px;
-                border: 2px solid #2b2b2b;
+                // border: 2px solid #2b2b2b;
+                box-shadow: 1px 1px 10px 1px #2b2b2b4a;
                 padding: 10px;
                 display: flex;
                 justify-content: space-between;
@@ -133,6 +143,12 @@
             padding: 10px 60px;
             text-align: center;
             border-radius: 10px;
+            &:active {
+                color: #2b2b2b;
+                background: #f8f8f8;
+                cursor: grabbing;
+                box-shadow: 1px 1px 10px 1px #2b2b2b4a inset;
+            }
         }
     }
 }
